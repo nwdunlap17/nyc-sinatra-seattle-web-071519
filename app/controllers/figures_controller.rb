@@ -5,15 +5,15 @@ class FiguresController < ApplicationController
     erb :index
   end
  
-  get '/new' do
-    erb :new
+  get '/figures/new' do
+    erb :'/figures/new'
   end
 
-  post '/new' do
+  post '/figures/new' do
     @new_figure= Title.new(params[:name])
   end
 
-  
+
 
 
 
