@@ -42,7 +42,7 @@ class FiguresController < ApplicationController
     erb :'/figures/edit'
   end
 
-  patch '/figures/:id/edit' do
+  patch '/figures/:id' do
   @figure = Figure.find(params[:id])
   if params[:title][:name] != ""
     @new_title = Title.create(params[:title])
