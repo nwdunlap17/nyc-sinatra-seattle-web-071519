@@ -10,7 +10,7 @@ class FiguresController < ApplicationController
   end
 
   post '/figures/new' do
-    binding.pry
+    #binding.pry
     @new_figure= Figure.create(params[:figure])
     if params[:title][:name] != ""
       @new_title = Title.create(params[:title])
