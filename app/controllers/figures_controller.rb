@@ -33,6 +33,7 @@ class FiguresController < ApplicationController
       @new_landmark.figure_id = @new_figure.id
       @new_landmark.save
     end
+    erb :'/figures/index'
   end
 
   get '/figures/:id/edit' do
@@ -40,7 +41,7 @@ class FiguresController < ApplicationController
     erb :'/figures/edit'
   end
 
-  patch '/figures/:id' do
+  patch '/figures/:id/edit' do
   @figure = Figure.find(params[:id])
   if params[:title][:name] != ""
     @new_title = Title.create(params[:title])
