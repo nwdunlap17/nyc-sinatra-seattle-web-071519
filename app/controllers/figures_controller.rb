@@ -45,7 +45,7 @@ class FiguresController < ApplicationController
   @figure = Figure.find(params[:id])
   if params[:title][:name] != ""
     @new_title = Title.create(params[:title])
-    FigureTitle.create({:title_id => @new_title.id, :figure_id => @new_figure.id})
+    FigureTitle.create({:title_id => @new_title.id, :figure_id => @figure.id})
   end
   if params[:landmark][:name] != ""
     #binding.pry
