@@ -9,7 +9,7 @@
 <h3>Titles</h3>
     <%Title.all.each do |titles|%>
         <%=titles.name%>
-        <input type= "checkbox" name=figure[title_ids][] id="title_<%=titles.id%>" name=<%=titles.id%>><br>
+        <input type= "checkbox" name=figure[title_ids][] id="title_<%=titles.id%>" value=<%=titles.id%>><br>
     <%end%>
 
 
@@ -23,7 +23,7 @@
 
     <%Landmark.all.each do |lands| %>
         <%=lands.name%>
-        <input type= "checkbox" name= figure[landmark_ids][] id= "landmark_<%=lands.id%>"><br>
+        <input type= "checkbox" name= figure[landmark_ids][] id= "landmark_<%=lands.id%>" value=<%=lands.id%>><br>
     <%end%>
 
 <h3>Create New Landmark</h3>
