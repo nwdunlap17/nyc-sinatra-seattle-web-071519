@@ -10,6 +10,7 @@ class FiguresController < ApplicationController
   end
 
   get '/figures/:id' do
+    #binding.pry
     @figure= Figure.find(params[:id])
     erb :"figures/show"
    end
@@ -48,13 +49,16 @@ class FiguresController < ApplicationController
     FigureTitle.create({:title_id => @new_title.id, :figure_id => @new_figure.id})
   end
   if params[:landmark][:name] != ""
+    #binding.pry
     @new_landmark = Landmark.new
     @new_landmark.name = params[:landmark][:name]
     @new_landmark.year_completed = params[:landmark][:year]
-    @new_landmark.figure_id = @new_figure.id
+    @new_landmark.figure_id = @figure.id
     @new_landmark.save
   end
     @figure.update(params[:figure])
+    #erb :"figures/show"
+    
     redirect "/figures/#{@figure.id}"
   end
 
