@@ -9,6 +9,17 @@ class FiguresController < ApplicationController
     erb :'/figures/new'
   end
 
+  get '/figures/:id' do
+    @figure= Figure.find(params[:id])
+    erb :"figures/show"
+   end
+
+  get '/figures' do
+    @figure= Figure.all
+    erb :'figures/index'
+  end
+
+
   post '/figures/new' do
     @new_figure= Figure.create(params[:figure])
     if params[:title][:name] != ""
@@ -23,22 +34,7 @@ class FiguresController < ApplicationController
       @new_landmark.save
     end
   end
-
-
-
-
-
-  # post '/edit' do
-  # end
-
-
-
-
-
-
-
-
-
+  #binding.pry
 
 
 end
