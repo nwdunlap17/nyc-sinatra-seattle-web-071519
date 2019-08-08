@@ -3,27 +3,27 @@
 <form method = "POST" action = "/figure/new">
 
 <label>Name: 
-<input type = "text" name = "figure[name]" ></label>
+<input type = "text" name = "figure[name]" id= "figure_name"></label>
 
 
 <h3>Titles</h3>
     <%Title.all.each do |titles|%>
         <%=titles.name%>
-        <input type= "checkbox" name=figure[title][]><br>
+        <input type= "checkbox" name=figure[title_ids][] id="title_<%=titles.id%>"><br>
     <%end%>
 
 
 
 <h3>Create New Title:</h3>
 
-<input type = "text" name=title[name]>
+<input type = "text" name=title[name] id=new_title>
 
 
 <h4>Landmarks</h4>
 
     <%Landmark.all.each do |lands| %>
         <%=lands.name%>
-        <input type= "checkbox" name= "<%=lands.name%>"><br>
+        <input type= "checkbox" name= figure[landmark_ids][] id= "landmark_<%=lands.id%>"><br>
     <%end%>
 
 
@@ -34,8 +34,12 @@
 <h3>Create New Landmark</h3>
 
 
-<input type="text" name= "landmark[name]">
+<input type="text" name= "landmark[name]" id="new_landmark">
 <input type="text" name= "landmark[year]">
 
 <a class="button" href="/landmarks">Landmarks</a>
 <a class="button" href="/">Home</a>
+
+
+<input type ="submit" id="Create New Figure">
+</form>
